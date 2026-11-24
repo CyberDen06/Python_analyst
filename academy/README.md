@@ -37,6 +37,29 @@ The first time a code cell runs, Pyodide downloads its runtime (~10 MB) from jsD
 After that it is cached by the browser. If the network is unavailable, code cells will
 show an error banner; everything else (lessons, quizzes, notes) still works.
 
+## Deploying to Vercel
+
+This app is a plain static site. The **academy folder itself must be the deployment
+root**, because the app loads `/assets/...` and `/datasets/...` from the site root.
+
+**Recommended (Git integration):**
+
+1. Vercel → Add New → Project → import the GitHub repo.
+2. Set **Root Directory** to `academy`.
+3. Framework Preset: **Other**. No build command, no output directory.
+4. Deploy.
+
+**Or upload a ZIP:** zip the **contents** of `academy/` (so `index.html`, `assets/`,
+and `datasets/` are at the ZIP root) and drag that ZIP into Vercel's deploy screen.
+
+Verify after deploying:
+
+- `https://your-site.vercel.app/assets/css/app.css` → 200 and CSS text
+- `https://your-site.vercel.app/datasets/shop_sales.csv` → 200 and CSV text
+
+If both return the HTML page or 404, the deployment root is wrong — redeploy with
+`academy` as the root directory.
+
 ## What a learner gets
 
 - **11 weeks** of content: foundations → Python basics → pandas tables → cleaning →

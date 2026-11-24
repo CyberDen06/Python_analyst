@@ -17,3 +17,6 @@ __pycache__/
 # Environment / secrets
 .env
 .env.*
+
+# Local deploy artifact
+academy-deploy.zip
