@@ -1,0 +1,49 @@
+product_name,brand,retailer,price_ngn,in_stock,average_rating,review_count,storage_gb,ram_gb,has_discount,delivery_days
+Tecno Spark 20,Tecno,Jumia,114900,True,3.9,157,128,4,False,4
+Tecno Spark 20,Tecno,Konga,118300,True,3.9,835,128,4,False,2
+Tecno Spark 20,Tecno,Slot,119300,True,4.0,857,128,4,True,3
+Tecno Camon 30,Tecno,Jumia,278000,True,4.0,776,256,8,False,4
+Tecno Camon 30,Tecno,Konga,272900,False,4.2,716,256,8,False,5
+Tecno Camon 30,Tecno,Slot,288600,True,4.0,747,256,8,False,2
+Tecno Pova 6,Tecno,Jumia,209600,True,3.9,460,256,8,False,6
+Tecno Pova 6,Tecno,Konga,215900,True,4.1,413,256,8,False,1
+Tecno Pova 6,Tecno,Slot,219600,True,3.9,737,256,8,False,4
+Infinix Hot 40i,Infinix,Jumia,110500,True,4.0,36,128,4,False,5
+Infinix Hot 40i,Infinix,Konga,109300,True,3.8,452,128,4,True,4
+Infinix Hot 40i,Infinix,Slot,114100,False,4.0,59,128,4,True,6
+Infinix Note 40,Infinix,Jumia,244200,True,4.1,85,256,8,False,3
+Infinix Note 40,Infinix,Konga,242100,True,4.1,663,256,8,False,5
+Infinix Note 40,Infinix,Slot,258300,True,4.1,628,256,8,False,3
+Infinix Zero 30,Infinix,Jumia,320800,True,4.0,365,256,12,False,4
+Infinix Zero 30,Infinix,Konga,316300,True,4.1,901,256,12,False,5
+Infinix Zero 30,Infinix,Slot,318000,True,4.0,192,256,12,False,2
+Samsung Galaxy A05,Samsung,Jumia,106800,False,4.0,81,64,4,False,6
+Samsung Galaxy A05,Samsung,Konga,99900,False,3.9,517,64,4,False,6
+Samsung Galaxy A05,Samsung,Slot,108100,False,3.8,755,64,4,False,4
+Samsung Galaxy A15,Samsung,Jumia,189800,True,3.9,145,128,6,False,4
+Samsung Galaxy A15,Samsung,Konga,181400,True,4.0,416,128,6,False,5
+Samsung Galaxy A15,Samsung,Slot,197600,True,3.9,830,128,6,False,5
+Samsung Galaxy A35,Samsung,Jumia,334200,True,4.1,405,256,8,False,4
+Samsung Galaxy A35,Samsung,Konga,336500,True,4.3,225,256,8,True,6
+Samsung Galaxy A35,Samsung,Slot,335400,True,4.2,868,256,8,False,6
+iPhone 13,Apple,Jumia,738100,True,4.5,663,128,4,False,5
+iPhone 13,Apple,Konga,696400,True,4.7,875,128,4,False,6
+iPhone 13,Apple,Slot,760900,True,4.6,39,128,4,False,5
+iPhone 14,Apple,Jumia,856100,True,4.9,579,128,6,False,3
+iPhone 14,Apple,Konga,854400,True,4.8,471,128,6,False,2
+iPhone 14,Apple,Slot,905600,True,4.8,759,128,6,False,6
+Redmi Note 13,Xiaomi,Jumia,197400,True,4.1,629,128,8,False,2
+Redmi Note 13,Xiaomi,Konga,194300,True,4.0,614,128,8,False,2
+Redmi Note 13,Xiaomi,Slot,200400,True,4.1,23,128,8,False,2
+Redmi 13C,Xiaomi,Jumia,99900,True,3.9,203,128,4,False,6
+Redmi 13C,Xiaomi,Konga,97800,True,3.9,348,128,4,True,4
+Redmi 13C,Xiaomi,Slot,98600,True,3.9,903,128,4,True,4
+itel A70,itel,Jumia,71200,True,4.0,592,128,4,False,2
+itel A70,itel,Konga,71800,True,3.7,555,128,4,False,1
+itel A70,itel,Slot,74300,True,3.9,149,128,4,False,2
+Nokia C32,Nokia,Jumia,83600,True,3.8,282,64,3,False,5
+Nokia C32,Nokia,Konga,82400,True,3.9,906,64,3,False,3
+Nokia C32,Nokia,Slot,85600,False,3.8,800,64,3,False,3
+Google Pixel 7a,Google,Jumia,617700,True,4.6,375,128,8,False,6
+Google Pixel 7a,Google,Konga,597500,False,4.5,46,128,8,True,4
+Google Pixel 7a,Google,Slot,625100,True,4.6,120,128,8,True,1

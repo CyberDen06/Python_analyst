@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Academy — Python for Data Analysis</title>
+<meta name="description" content="An interactive, beginner-friendly course in Python for data analysis. Lessons, live code, exercises, and quizzes — all in your browser.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Cpath d='M20 44V20h9c8 0 13 4.5 13 12s-5 12-13 12h-9zm7-6h2c4.5 0 7-2 7-6s-2.5-6-7-6h-2v12z' fill='%232dd4bf'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<div id="shell">
+  <aside id="sidebar" aria-label="Course navigation">
+    <a class="brand" href="#/">
+      <span class="brand-mark" aria-hidden="true">D<span>A</span></span>
+      <span class="brand-copy">
+        <strong>Data Academy</strong>
+        <small>Python for Data Analysis</small>
+      </span>
+    </a>
+
+    <div class="side-progress" id="side-progress">
+      <div class="side-progress-head">
+        <span>Course progress</span>
+        <span id="side-progress-pct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="side-progress-fill"></div></div>
+    </div>
+
+    <nav class="week-nav" id="week-nav" aria-label="Weeks"></nav>
+
+    <div class="side-footer">
+      <a class="side-link" href="#/glossary">📖 Glossary</a>
+      <button class="side-link" id="btn-help" type="button">❓ How this works</button>
+      <button class="side-link danger" id="btn-reset" type="button">↺ Reset progress</button>
+    </div>
+  </aside>
+
+  <div id="main-wrap">
+    <header id="topbar">
+      <button id="btn-menu" class="icon-btn" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <div class="crumbs" id="crumbs"></div>
+      <div class="topbar-actions">
+        <span class="runtime-chip" id="runtime-chip" title="Python runtime status">
+          <span class="dot" id="runtime-dot"></span>
+          <span id="runtime-text">Python: starting…</span>
+        </span>
+        <button class="btn ghost small" id="btn-restart-kernel" type="button" title="Restart Python and clear all variables">Restart kernel</button>
+      </div>
+    </header>
+
+    <main id="view" tabindex="-1"></main>
+    <footer class="page-footer">
+      <span>Data Academy · Python for Data Analysis</span>
+      <span>Runs locally in your browser · progress saved on this device</span>
+    </footer>
+  </div>
+</div>
+
+<div id="scrim" hidden></div>
+
+<div id="runtime-banner" hidden>
+  <div class="banner-inner">
+    <strong>Python could not start.</strong>
+    <span id="runtime-banner-text">Check your internet connection and reload.</span>
+    <button class="btn small" id="btn-retry-runtime" type="button">Retry</button>
+    <button class="icon-btn" id="btn-dismiss-banner" type="button" aria-label="Dismiss">✕</button>
+  </div>
+</div>
+
+<div id="toast-region" aria-live="polite"></div>
+
+<dialog id="help-dialog">
+  <div class="dialog-head">
+    <h2>How this academy works</h2>
+    <button class="icon-btn" data-close-dialog type="button" aria-label="Close">✕</button>
+  </div>
+  <div class="dialog-body">
+    <p><strong>One real Python runtime, in your browser.</strong> Code cells run on Pyodide (Python compiled to WebAssembly). Nothing is installed on your computer.</p>
+    <ul>
+      <li><strong>Run ▶</strong> executes the code in a cell. Variables persist between cells, just like a notebook. <strong>Restart kernel</strong> wipes them.</li>
+      <li><strong>Check my work</strong> on an exercise runs hidden tests; you'll get a specific message when something is off.</li>
+      <li><strong>Quizzes</strong> are marked instantly; pass at 70% or better to complete the item.</li>
+      <li>Your progress, notes, and checklist state are saved in this browser (<code>localStorage</code>).</li>
+    </ul>
+    <p class="muted">Keyboard: <kbd>Ctrl</kbd>+<kbd>Enter</kbd> runs the cell you're editing.</p>
+  </div>
+</dialog>
+
+<dialog id="reset-dialog">
+  <div class="dialog-head">
+    <h2>Reset progress?</h2>
+    <button class="icon-btn" data-close-dialog type="button" aria-label="Close">✕</button>
+  </div>
+  <div class="dialog-body">
+    <p>This clears completed exercises, quiz scores, saved notes, and checklists on this device. It cannot be undone.</p>
+    <div class="dialog-actions">
+      <button class="btn ghost" data-close-dialog type="button">Cancel</button>
+      <button class="btn danger" id="btn-confirm-reset" type="button">Yes, reset everything</button>
+    </div>
+  </div>
+</dialog>
+
+<noscript>
+  <div class="noscript">This academy needs JavaScript enabled to run Python lessons.</div>
+</noscript>
+
+<script type="module" src="assets/js/app.js?v=20261124b"></script>
+</body>
+</html>

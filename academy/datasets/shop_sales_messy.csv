@@ -1,0 +1,85 @@
+order_id,order_date,product,category,region,quantity,unit_price,customer_type
+ORD-2001,2026-01-03,Headphones,Audio,Ikeja,4,12800,New
+ORD-2002,2026-01-04,Bluetooth Speaker,Audio,Lekki,3,29000,New
+ORD-2003,2026-01-06,Power Bank,POWER,Yaba,4,16200,New
+ORD-2004,2026-01-08,Smart Watch,Wearables,Lekki,2,,New
+ORD-2005,2026-01-10,Phone Case,Accessories,Ikeja,1,3500,Returning
+ORD-2006,2026-01-12,USB Cable,Accessories,Lekki,3,"2,500",Returning
+ORD-2007,13/01/2026,Charger,Power,Lekki,1,7800,Returning
+ORD-2008,2026-01-15,Laptop Sleeve,Accessories,Surulere,2,9000,Returning
+ORD-2009,2026-01-17,Headphones,Audio ,Ikeja,1,11800,New
+ORD-2010,2026-01-19,Bluetooth Speaker,Audio,Lekki,1,"26,000",New
+ORD-2011,2026-01-21,Power Bank,Power,Surulere,3,14700,Returning
+ORD-2012,2026-01-22,Smart Watch,Wearables,Ikeja,2,,New
+ORD-2013,2026-01-24,Phone Case,Accessories,Surulere,4,3600,New
+ORD-2014,2026-01-26,USB Cable,Accessories,Lekki,4,2400,New
+ORD-2015,2026-01-28,Charger,Power,Yaba,2,"N7,200",Returning
+ORD-2016,2026-01-30,Laptop Sleeve,Accessories,Ikorodu,4,8900,Returning
+ORD-2017,2026-01-31,Headphones,audio,Ikorodu,3,13400,New
+ORD-2018,2026-02-02,Bluetooth Speaker,Audio,Ikorodu,4,28300,New
+ORD-2019,04/02/2026,Power Bank,Power,Ikorodu,1,14700,New
+ORD-2020,2026-02-06,Smart Watch,Wearables,Ikeja,4,,Returning
+ORD-2021,2026-02-08,Phone Case,Accessories,Ikorodu,1,3700,Returning
+ORD-2022,2026-02-09,USB Cable,Accessories,Lekki,3,2600,Returning
+ORD-2023,2026-02-11,Charger,Power,Yaba,4,"₦7,900",New
+ORD-2024,2026-02-13,Laptop Sleeve,Accessories,Yaba,4,9600,Returning
+ORD-2025,2026-02-15,Headphones,Audio,Yaba,4,12500,Returning
+ORD-2026,2026-02-17,Bluetooth Speaker,audio,Surulere,2,27700,New
+ORD-2027,2026-02-18,Power Bank,Power,Surulere,3,14300,New
+ORD-2028,2026-02-20,Smart Watch,Wearables,Yaba,4,,New
+ORD-2029,2026-02-22,Phone Case,Accessories,Surulere,1,3500,Returning
+ORD-2030,24/02/2026,USB Cable,Accessories,Lekki,3,2500,Returning
+ORD-2031,2026-02-26,Charger,Power,Surulere,1,7500,Returning
+ORD-2032,2026-02-27,Laptop Sleeve,Accessories,Surulere,3,"N9,100",Returning
+ORD-2033,2026-03-01,Headphones,Audio,Ikeja,1,13200,New
+ORD-2034,2026-03-03,Bluetooth Speaker,Audio,Lekki,3,29300,Returning
+ORD-2035,2026-03-05,Power Bank,power,Lekki,1,14600,Returning
+ORD-2036,2026-03-07,Smart Watch,Wearables,Ikeja,1,44000,Returning
+ORD-2037,2026-03-08,Phone Case,Accessories,Ikorodu,4,,Returning
+ORD-2038,2026-03-10,USB Cable,Accessories,Lekki,2,2600,Returning
+ORD-2039,2026-03-12,Charger,Power,Ikeja,3,7200,Returning
+ORD-2040,2026-03-14,Laptop Sleeve,Accessories,Ikorodu,1,9200,New
+ORD-2041,2026-03-16,Headphones,Audio,Ikorodu,2,4200000,Returning
+ORD-2042,2026-03-17,Bluetooth Speaker,Audio,Surulere,2,28200,Returning
+ORD-2043,2026-03-19,Power Bank,Power,Ikorodu,1,15900,Returning
+ORD-2044,2026-03-21,Smart Watch,wearables,Surulere,2,39000,Returning
+ORD-2045,2026-03-23,Phone Case,Accessories,Ikeja,1,,Returning
+ORD-2046,2026-03-25,USB Cable,Accessories,Lekki,4,2500,Returning
+ORD-2047,2026-03-26,Charger,Power,Ikorodu,3,7700,Returning
+ORD-2048,2026-03-28,Laptop Sleeve,Accessories,Surulere,1,"9,500",Returning
+ORD-2049,2026-03-30,Headphones,Audio,Surulere,1,12700,New
+ORD-2050,2026-04-01,Bluetooth Speaker,Audio,Ikorodu,1,27600,Returning
+ORD-2051,03/04/2026,Power Bank,Power,Ikorodu,3,16000,New
+ORD-2052,2026-04-04,Smart Watch,Wearables,Ikorodu,3,41100,Returning
+ORD-2053,2026-04-06,Phone Case,accessories,Ikorodu,1,3700,Returning
+ORD-2054,2026-04-08,USB Cable,Accessories,Surulere,2,,New
+ORD-2055,2026-04-10,Charger,Power,Ikorodu,1,7600,Returning
+ORD-2056,2026-04-12,Laptop Sleeve,Accessories,Ikorodu,1,8700,New
+ORD-2057,2026-04-13,Headphones,Audio,Ikeja,4,11900,Returning
+ORD-2058,2026-04-15,Bluetooth Speaker,Audio,Lekki,3,27400,New
+ORD-2059,2026-04-17,Power Bank,Power,Surulere,4,16000,Returning
+ORD-2060,2026-04-19,Smart Watch,Wearables,Ikeja,1,44300,New
+ORD-2061,2026-04-21,Phone Case,accessories,Yaba,2,3300,Returning
+ORD-2062,2026-04-22,USB Cable,Accessories,Surulere,1,,Returning
+ORD-2063,2026-04-24,Charger,Power,Ikeja,1,7000,Returning
+ORD-2064,2026-04-26,Laptop Sleeve,Accessories,Surulere,3,8800,New
+ORD-2065,2026-04-28,Headphones,Audio,Ikorodu,2,11900,Returning
+ORD-2066,2026-04-30,Bluetooth Speaker,Audio,Yaba,2,26000,Returning
+ORD-2067,2026-05-01,Power Bank,Power,Ikorodu,4,4200000,New
+ORD-2068,2026-05-03,Smart Watch,Wearables,Yaba,3,45100,New
+ORD-2069,2026-05-05,Phone Case,ACCESSORIES,Ikorodu,2,3700,New
+ORD-2070,2026-05-07,USB Cable,Accessories,Ikeja,1,2600,Returning
+ORD-2071,09/05/2026,Charger,Power,Ikeja,2,8000,New
+ORD-2072,2026-05-10,Laptop Sleeve,Accessories,Yaba,3,9100,Returning
+ORD-2073,2026-05-12,Headphones,Audio,Lekki,2,13100,Returning
+ORD-2074,2026-05-14,Bluetooth Speaker,Audio,Ikorodu,1,29700,New
+ORD-2075,2026-05-16,Power Bank,Power ,Yaba,2,14000,Returning
+ORD-2076,2026-05-18,Smart Watch,Wearables,Yaba,4,41100,Returning
+ORD-2077,2026-05-19,Phone Case,Accessories,Yaba,3,3300,Returning
+ORD-2078,2026-05-21,USB Cable,Accessories,Lekki,4,2400,Returning
+ORD-2079,2026-05-23,Charger,Power,Yaba,1,7300,Returning
+ORD-2080,2026-05-25,Laptop Sleeve,Accessories,Ikeja,2,9500,Returning
+ORD-2011,2026-01-21,Power Bank,Power,Surulere,3,14700,Returning
+ORD-2021,2026-02-08,Phone Case,Accessories,Ikorodu,1,3700,Returning
+ORD-2031,2026-02-26,Charger,Power,Surulere,1,7500,Returning
+ORD-2046,2026-03-25,USB Cable,Accessories,Lekki,4,2500,Returning
