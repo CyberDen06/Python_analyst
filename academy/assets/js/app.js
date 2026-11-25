@@ -8,15 +8,16 @@ import { WEEKS, GLOSSARY } from "./content/index.js";
    ============================================================ */
 
 const STORAGE_KEY = "data-academy-v1";
+const DATA_BASE = new URL("datasets/", document.baseURI).href;
 const DATASETS = [
-  { name: "lagos_phones.csv", url: "/datasets/lagos_phones.csv" },
-  { name: "shop_sales.csv", url: "/datasets/shop_sales.csv" },
-  { name: "shop_sales_messy.csv", url: "/datasets/shop_sales_messy.csv" },
-  { name: "product_catalogue.csv", url: "/datasets/product_catalogue.csv" },
-  { name: "website_traffic.csv", url: "/datasets/website_traffic.csv" },
-  { name: "daily_sales.csv", url: "/datasets/daily_sales.csv" },
-  { name: "ibadan_schools.csv", url: "/datasets/ibadan_schools.csv" },
-];
+  "lagos_phones.csv",
+  "shop_sales.csv",
+  "shop_sales_messy.csv",
+  "product_catalogue.csv",
+  "website_traffic.csv",
+  "daily_sales.csv",
+  "ibadan_schools.csv",
+].map((name) => ({ name, url: DATA_BASE + name }));
 
 const state = {
   currentWeek: null,
