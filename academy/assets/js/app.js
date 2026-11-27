@@ -1,5 +1,14 @@
 import { mdToHtml } from "./markdown.js";
 import { WEEKS, GLOSSARY } from "./content/index.js";
+import { ENRICHMENT } from "./content/enrichment.js";
+
+// Merge per-week enrichment (assignments, real-world deep dives, progress maps).
+for (const week of WEEKS) {
+  const extra = ENRICHMENT[week.id];
+  if (extra && Array.isArray(extra.sections)) {
+    week.sections.push(...extra.sections);
+  }
+}
 
 /* ============================================================
    Data Academy — application logic
@@ -21,7 +30,7 @@ const DATASETS = [
 
 const state = {
   currentWeek: null,
-  progress: { exercises: {}, quizzes: {}, notes: {}, checklist: {}, detailsOpen: {} },
+  progress: { exercises: {}, quizzes: {}, notes: {}, checklist: {}, assignments: {}, detailsOpen: {} },
   runtime: { worker: null, ready: false, error: null, pending: {}, nextId: 1 },
 };
 
@@ -48,6 +57,7 @@ function loadProgress() {
         quizzes: p.quizzes || {},
         notes: p.notes || {},
         checklist: p.checklist || {},
+        assignments: p.assignments || {},
         detailsOpen: p.detailsOpen || {},
       };
     }
@@ -484,6 +494,90 @@ function renderBlock(block, weekId) {
         </div>
       `;
     }
+    case "progress-map": {
+      const rows = block.rows || [];
+      return `
+        <div class="block progress-map">
+          <div class="pm-head">
+            <span class="pm-label">📊 Progress map</span>
+            <span>${esc(block.title || "Your growing capabilities")}</span>
+          </div>
+          ${block.intro ? `<div class="pm-intro">${mdToHtml(block.intro)}</div>` : ""}
+          <table class="pm-table">
+            <thead><tr>${(block.columns || []).map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead>
+            <tbody>
+              ${rows.map(r => `<tr>${r.map((cell, ci) => {
+                const isCurrent = ci === 0 && cell === block.currentWeek;
+                return `<td class="${isCurrent ? "pm-current" : ""}">${isCurrent ? "▶ " : ""}${esc(cell)}</td>`;
+              }).join("")}</tr>`).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+    case "progress-map": {
+      const rows = block.rows || [];
+      return `
+        <div class="block progress-map">
+          <div class="pm-head">
+            <span class="pm-label">📊 Progress map</span>
+            <span>${esc(block.title || "Your growing capabilities")}</span>
+          </div>
+          ${block.intro ? `<div class="pm-intro">${mdToHtml(block.intro)}</div>` : ""}
+          <table class="pm-table">
+            <thead><tr>${(block.columns || []).map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead>
+            <tbody>
+              ${rows.map(r => `<tr>${r.map(cell => `<td>${esc(cell)}</td>`).join("")}</tr>`).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+    case "realworld": {
+      return `
+        <div class="block realworld">
+          <span class="ico">🌍</span>
+          <div class="callout-body">${mdToHtml(block.md)}</div>
+        </div>
+      `;
+    }
+    case "assignment": {
+      const critChecks = state.progress.assignments[cid] && state.progress.assignments[cid].criteria
+        ? state.progress.assignments[cid].criteria
+        : block.criteria.map(() => false);
+const done = critChecks.every(Boolean);
+      return `
+        <div class="block assignment${done ? " done" : ""}">
+          <div class="assignment-head">
+            <span class="assignment-label">📝 Assignment</span>
+            <span class="assignment-title">${esc(block.title)}</span>
+            <span class="assignment-status ${done ? "pass" : ""}" id="assignment-status-${fullId}">${done ? "Complete" : "Open"}</span>
+          </div>
+          <div class="exercise-prompt">${mdToHtml(block.md)}</div>
+          <div class="assignment-criteria">
+            <div class="criteria-head">Deliverable &amp; self-check</div>
+            <div class="criteria-body">
+              <div class="criteria-note">${esc(block.deliverable || "")}</div>
+              <ul class="criteria-list">
+                ${block.criteria.map((c, i) => `
+                  <li class="crit-item${critChecks[i] ? " done" : ""}">
+                    <input type="checkbox" ${critChecks[i] ? "checked" : ""} data-action="assign-crit" data-cell="${fullId}" data-index="${i}">
+                    ${esc(c)}
+                  </li>`).join("")}
+              </ul>
+            </div>
+          </div>
+          <div class="notes-card notes-mini">
+            <div class="notes-head">
+              <span class="notes-label">📋 Your submission</span>
+              <span class="notes-saved" id="notes-saved-${fullId}">saved</span>
+            </div>
+            <div class="notes-prompt">Paste your answers, link to your notebook, or write your deliverable here.</div>
+            <textarea class="notes-area" id="notes-${fullId}" placeholder="Your answers…" spellcheck="false">${esc(state.progress.assignments[cid] && state.progress.assignments[cid].notes ? state.progress.assignments[cid].notes : "")}</textarea>
+          </div>
+        </div>
+      `;
+    }
     case "quiz": {
       const qstate = state.progress.quizzes[cid] || {};
       const answered = qstate.passed !== undefined || qstate.score !== undefined;
@@ -600,11 +694,13 @@ function wireUp(week) {
   // Notes auto-save
   for (const section of week.sections) {
     for (const block of section.blocks) {
-      if (block.type === "notes") {
+      if (block.type === "notes" || block.type === "assignment") {
         const ta = $sel("#notes-" + week.id + "-" + block.id);
         if (ta) {
           ta.addEventListener("input", () => {
-            state.progress.notes[block.id] = ta.value;
+            let rec = state.progress.assignments[block.id] || {};
+            if (block.type === "assignment") rec.notes = ta.value;
+            else state.progress.notes[block.id] = ta.value;
             const saved = $sel("#notes-saved-" + week.id + "-" + block.id);
             if (saved) { saved.textContent = "saving…"; saved.style.color = "#fbbf24"; }
             debouncedSave();
@@ -643,6 +739,9 @@ function wireUp(week) {
   for (const cb of $all('[data-action="checklist"]')) {
     cb.addEventListener("change", () => toggleChecklist(cb));
   }
+  for (const cb of $all('[data-action="assign-crit"]')) {
+    cb.addEventListener("change", () => toggleAssignCrit(cb));
+  }
 }
 
 function toggleChecklist(cb) {
@@ -655,6 +754,30 @@ function toggleChecklist(cb) {
   saveProgress();
   const row = document.getElementById("checklist-" + fullId + "-" + index);
   if (row) row.classList.toggle("done", cb.checked);
+  refreshUI();
+}
+
+function toggleAssignCrit(cb) {
+  const fullId = cb.dataset.cell;
+  const index = parseInt(cb.dataset.index, 10);
+  const blockId = fullId.split("-").slice(2).join("-");
+  let rec = state.progress.assignments[blockId] || {};
+  let arr = rec.criteria || [];
+  arr[index] = cb.checked;
+  rec.criteria = arr;
+  rec.notes = (rec.notes || "");
+  state.progress.assignments[blockId] = rec;
+  saveProgress();
+  const row = cb.closest(".crit-item");
+  if (row) row.classList.toggle("done", cb.checked);
+  const status = document.getElementById("assignment-status-" + fullId);
+  const allDone = arr.every(Boolean);
+  if (status) {
+    status.textContent = allDone ? "Complete" : "Open";
+    status.className = "assignment-status" + (allDone ? " pass" : "");
+  }
+  const card = cb.closest(".assignment");
+  if (card) card.classList.toggle("done", allDone);
   refreshUI();
 }
 
